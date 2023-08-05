@@ -51,6 +51,6 @@ output "groom_village_name"{
     value = try(var.villages["atp"].village_name,"TeK")
 }
 output "bride_village_name"{
-    value = lookup(var.villages["kdp"].village_name,"village_name","Kam")
+    value = lookup(var.villages["kdp"],"village_name","Kam")
 }
 
