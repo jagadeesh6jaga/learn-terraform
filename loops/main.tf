@@ -10,9 +10,11 @@ variable "security_group"{
 }
 
 variable "components_dict"{
+    default = {
     "frontend" = {},
     "mongo" ={},
     "catalogue" ={}
+    }
 }
 
 resource "aws_instance" instance123 {
