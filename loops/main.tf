@@ -20,7 +20,7 @@ variable "components_dict"{
     }
 }
 
-resource "aws_instance" instance123 {
+resource "aws_instance" "instance123" {
     for_each = var.components_dict
     ami = var.ami
     instance_type = var.instance_type
