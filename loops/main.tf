@@ -8,6 +8,9 @@ variable "instance_type"{
 variable "security_group"{
     default = ["sg-0490a4409ed09ba21"]
 }
+variable "zone_id"{
+    default = "Z0159157KZ467VQH413J"
+}
 
 variable "components_dict"{
     default = {
@@ -26,4 +29,13 @@ resource "aws_instance" instance123 {
     tags = {
         Name = each.key
     }
+}
+
+resource "aws_route53_record" "record"{
+  for_each = var.components_dict
+  zone_id = var.zone_id
+  name    = "${each.key}.jdevops.online"
+  type    = "A"
+  ttl     = 300
+  records = ["aws_instance.${each.key}.private_ip"]
 }
