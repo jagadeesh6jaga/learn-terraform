@@ -28,8 +28,8 @@ variable "cars"{
 }
 
 output "first_car"{
-    value=var.car["first"]
+    value=var.cars["first"]
 }
 output "second_car"{
-    value=var.car["second"]
+    value=var.cars["second"]
 }
