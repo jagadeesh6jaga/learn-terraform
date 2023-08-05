@@ -1,10 +1,26 @@
-resource "aws_instance" "frontend" {
-  ami           = "ami-03265a0778a880afb"
-  instance_type = "t3.micro"
-  vpc_security_group_ids = ["sg-0490a4409ed09ba21"]
+variable "ami"{
+    default = "ami-03265a0778a880afb"
+}
+variable "instance_type"{
+    default = "t3.micro"
+}
+
+variable "security_group"{
+    default = ["sg-0490a4409ed09ba21"]
+}
+
+
+variable "inastance_name"{
+    default = "frontend"
+}
+
+resource "aws_instance" var.inastance_name {
+  ami           = var.ami
+  instance_type = var.instance_type
+  vpc_security_group_ids = var.security_group
 
   tags = {
-    Name = "frontend"
+    Name = var.inastance_name
   }
 }
 
