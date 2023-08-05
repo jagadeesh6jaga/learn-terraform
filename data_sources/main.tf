@@ -4,5 +4,5 @@ data "aws_ami" "amis_devops" {
 }
 
 output "amis" {
-    value = aws_ami.amis_devops
+    value = data.aws_ami.amis_devops
 }
