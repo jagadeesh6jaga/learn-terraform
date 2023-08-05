@@ -37,5 +37,5 @@ resource "aws_route53_record" "record"{
   name    = "${each.key}.jdevops.online"
   type    = "A"
   ttl     = 300
-  records = [aws_instance.instance123.${each.key}.private_ip]
+  records = [lookup(lookup(aws_instance.instance123,each.key,null),"private_ip",null)]
 }
