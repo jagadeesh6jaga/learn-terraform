@@ -1,5 +1,4 @@
 data "aws_ami" "amis_devops" {
-  name_regex       = "^Centos-8-Devops"
   owners           = ["973714476881"]
 }
 
